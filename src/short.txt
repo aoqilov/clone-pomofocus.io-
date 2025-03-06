@@ -1,0 +1,20 @@
+ <div className="list">
+              <div className="list-title">
+                {/* left-border */}
+                <span className="left-border active"></span>
+
+                <span className="check"></span>
+                <p>title</p>
+              </div>
+              <div className="list-options">
+                <p className="big-num">
+                  0/<span className="small-num">1</span>
+                </p>
+                <div className="opt-icon">
+                  <img
+                    src="https://pomofocus.io/icons/vertical-ellipsis.png"
+                    alt="das"
+                  />
+                </div>
+              </div>
+            </div>

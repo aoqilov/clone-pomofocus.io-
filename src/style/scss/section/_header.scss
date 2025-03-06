@@ -1,0 +1,276 @@
+@use "../abstracts/responsive" as resize;
+
+.header {
+  max-width: 480px;
+  width: 100%;
+  padding-bottom: 20px;
+  .timer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px auto 20px auto;
+    padding: 20px 0;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    &__menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h3 {
+        padding: 4px 12px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        &.active {
+          background-color: rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+    &__time {
+      margin-top: 20px;
+      p {
+        font-size: 120px;
+        font-weight: 700;
+        color: white;
+      }
+      .time-btns {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px 0px;
+        position: relative;
+        button {
+          cursor: pointer;
+          border: none;
+          padding: 0px 12px;
+          border-radius: 4px;
+          box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+          font-size: 22px;
+          height: 55px;
+          color: rgb(133, 97, 97);
+          font-weight: bold;
+          width: 200px;
+          background-color: white;
+          transition: color 0.5sease-in-out;
+          &:active {
+            transform: translateY(5px);
+            box-shadow: none;
+          }
+        }
+        .reload {
+          display: none;
+          position: absolute;
+          right: 0px;
+          top: 30%;
+          img {
+            width: 25px;
+          }
+          &.active {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .tasks {
+    position: relative;
+    padding-bottom: 90px;
+    &__now {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      h4 {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.712);
+      }
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+      }
+    }
+    &__menu {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      padding-bottom: 1px solid;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+      p {
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+      }
+      div {
+        width: 32px;
+        height: 32px;
+        background-color: rgba(255, 255, 255, 0.205);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        cursor: pointer;
+        img {
+          width: 18px;
+        }
+      }
+    }
+    &__add {
+      margin-top: 20px;
+      background-color: #00000018;
+      border-radius: 4px;
+      border: 2px dashed rgba(255, 255, 255, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      height: 64px;
+      width: 100%;
+      cursor: pointer;
+      img {
+        width: 20px;
+      }
+      p {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 700;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      .list {
+        height: 62px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+
+        &:hover .left-border {
+          background-color: rgb(179, 179, 179) !important; // Qizil rang
+        }
+
+        &-title {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          .left-border {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            overflow: hidden;
+            width: 6px;
+            height: 62px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px;
+
+            &.active {
+              background-color: rgba(0, 0, 0, 0.842);
+            }
+          }
+          .check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px; // Doira o'lchami
+            height: 26px;
+            border-radius: 50%; // Doira shakli
+            background-color: #e0e0e0; // Default holatda kulrang
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &::before {
+              content: "✔";
+              font-size: 18px;
+              color: white;
+              font-weight: bold;
+              opacity: 0.5; // Default holatda yarim shaffof
+              transition: opacity 0.3s ease;
+            }
+
+            &.active {
+              background-color: #b44d4d; // Aktiv holatda qizil
+            }
+
+            &.active::before {
+              opacity: 1; // Aktiv holatda belgi aniq bo'ladi
+            }
+          }
+          p {
+            font-size: 16px;
+            font-weight: 700;
+            color: rgb(85, 85, 85);
+          }
+        }
+        &-options {
+          display: flex;
+          align-items: center;
+          margin-right: 15px;
+          .big-num {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgb(170, 170, 170);
+            margin-right: 30px;
+            .small-num {
+              font-size: 15px;
+              font-weight: 700;
+            }
+          }
+          .opt-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(128, 128, 128, 0.644);
+            border-radius: 4px;
+            img {
+              width: 18px;
+            }
+          }
+        }
+      }
+      .result-table {
+        position: absolute;
+        bottom: 0;
+        height: 75px;
+        width: 100%;
+        background-color: rebeccapurple;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.1);
+        h4 {
+          font-size: 16px;
+          line-height: 34px;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.699);
+        }
+        span {
+          font-size: 24px;
+          font-weight: 700;
+          color: white;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@include resize.breakpoint("xs") {
+  .header {
+    .timer {
+      &__time {
+        p {
+          font-size: 80px;
+        }
+      }
+    }
+  }
+}
