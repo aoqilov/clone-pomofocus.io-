@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ModalSettings from "../components/modalSettings";
+import ModalSettings from "../components/ModalSettings.jsx";
 
 const Navbar = ({ threeTime, setThreeTime }) => {
   const [isOpen, setIsOpen] = useState(false);
